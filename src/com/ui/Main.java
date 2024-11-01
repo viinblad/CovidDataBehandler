@@ -1,16 +1,19 @@
-package java.ui;
+package com.ui;
 
-import java.datasource.FileHandler;
+import com.datasource.FileHandler;
 
 public class Main {
     public static void main(String[] args) {
         FileHandler fileHandler = new FileHandler();
 
-        // Sørg for at ændre filstien til den korrekte placering af CSV-filen i projektet
+        // Filsti til CSV-filen
         String filePath = "11_noegletal_pr_region_pr_aldersgruppe.csv";
-        fileHandler.readData(filePath);
 
-        // Udskriv dataene
+        // Læs og udskriv data
+        fileHandler.readData(filePath);
         fileHandler.printData();
+
+        // Udskriv totalsum
+        fileHandler.printTotals();
     }
 }
