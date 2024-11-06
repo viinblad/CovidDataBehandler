@@ -19,6 +19,14 @@ public class Covid19Data {
         this.dato = dato;
     }
 
+    public String getRegion() {
+        return region;
+    }
+
+    public String getAldersgruppe() {
+        return aldersgruppe;
+    }
+
     public int getBekræftedeTilfælde() {
         return bekræftedeTilfælde;
     }

@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class FileHandler {
@@ -77,6 +78,11 @@ public class FileHandler {
         System.out.println("Døde: " + totalDøde);
         System.out.println("Indlagte på Intensiv: " + totalIndlagtePåIntensivAfdeling);
         System.out.println("Indlagte: " + totalIndlagte);
+    }
+
+    // Sorteringsmetode baseret på en comparator
+    public void sortData(Comparator<Covid19Data> comparator) {
+        covidDataList.sort(comparator);
     }
 
     // Getter for ArrayListen, hvis den ønskes tilgængelig andre steder
