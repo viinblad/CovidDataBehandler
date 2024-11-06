@@ -6,6 +6,7 @@ import com.domainmodel.AldersGruppeComparator;
 
 import java.util.Scanner;
 
+
 public class Main {
     public static void main(String[] args) {
         FileHandler fileHandler = new FileHandler();
@@ -13,12 +14,8 @@ public class Main {
         // Filsti til CSV-filen
         String filePath = "11_noegletal_pr_region_pr_aldersgruppe.csv";
 
-        // Læs og udskriv data
+        // Læs data
         fileHandler.readData(filePath);
-        fileHandler.printData();
-
-        // Udskriv totalsum
-        fileHandler.printTotals();
 
         // Opret Scanner for at få input fra brugeren
         Scanner scanner = new Scanner(System.in);
@@ -26,11 +23,13 @@ public class Main {
 
         while (running) {
             // Vis valgmuligheder til brugeren
-            System.out.println("\nVælg sorteringskriterie:");
+            System.out.println("\nVælg en handling:");
             System.out.println("1 - Sorter efter region");
             System.out.println("2 - Sorter efter aldersgruppe");
+            System.out.println("3 - Udskriv aktuel liste");
+            System.out.println("4 - Udskriv totalsum");
             System.out.println("0 - Afslut");
-            System.out.print("Indtast valg (0, 1 eller 2): ");
+            System.out.print("Indtast valg (0, 1, 2, 3 eller 4): ");
 
             int choice = scanner.nextInt();
 
@@ -39,12 +38,18 @@ public class Main {
                 case 1:
                     fileHandler.sortData(new RegionComparator());
                     System.out.println("\nData sorteret efter region:");
-                    fileHandler.printData();
                     break;
                 case 2:
                     fileHandler.sortData(new AldersGruppeComparator());
                     System.out.println("\nData sorteret efter aldersgruppe:");
-                    fileHandler.printData();
+                    break;
+                case 3:
+                    System.out.println("\nAktuel liste:");
+                    fileHandler.printData(); // Udskriv dataene
+                    break;
+                case 4:
+                    System.out.println("\nTotalsum:");
+                    fileHandler.printTotals(); // Udskriv totalsum
                     break;
                 case 0:
                     System.out.println("Afslutter programmet...");
